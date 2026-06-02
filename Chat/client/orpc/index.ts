@@ -1,4 +1,4 @@
-import {ConsoleLogger, HTTPClient, LogLevel, WSClient} from './v1/index.ts';
+import { HTTPClient, WSClient } from './v1/index.ts';
 export * from './v1/resources.ts';
 
 const host = 'localhost';

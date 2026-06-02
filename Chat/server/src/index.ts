@@ -41,11 +41,6 @@ server
     .registerSubscription(v1, UserResource.name, {
         onClientConnect: onUserSubscriptionConnect,
         onClientDisconnect: onUserSubscriptionDisconnect,
-        onResourceUpdate: (_p , _api, resName, resource) => {
-            console.log(resource)
-
-            return resource;
-        }
     })
     .start();
 

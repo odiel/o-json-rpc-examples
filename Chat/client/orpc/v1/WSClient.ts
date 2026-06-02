@@ -121,35 +121,34 @@ export class WSClient {
         this.onDisconnectFn = fn;
     }
 
-    
     /**
      * Method for calling procedure createAlias.
      * Note: the request is sent immediately
      */
-    public createAlias(input: Resource.Alias, options?: { procedureId?: string; }) {
+    public createAlias(input: Resource.Alias, options?: { procedureId?: string }) {
         if (this.isConnected()) {
             const procedure: ProcedureRequest = {
                 id: options?.procedureId || 'createAlias',
-                name: 'createAlias'
-            }
+                name: 'createAlias',
+            };
 
             if (input) {
                 procedure.input = input;
             }
-        
+
             const payload: Request = {
                 protocol: 'v1',
                 api: this.apiVersion,
                 procedures: [
-                    procedure
+                    procedure,
                 ],
-            }
-    
-            this.logger.debug('Websocket: sending request', { payload: payload })
-    
+            };
+
+            this.logger.debug('Websocket: sending request', { payload: payload });
+
             this.websocket && this.websocket.send(JSON.stringify(payload));
         } else {
-            throw new ClientNotConnected('Request for procedure [createAlias] not sent; client is not connected.')
+            throw new ClientNotConnected('Request for procedure [createAlias] not sent; client is not connected.');
         }
     }
 
@@ -157,30 +156,30 @@ export class WSClient {
      * Method for calling procedure getUsers.
      * Note: the request is sent immediately
      */
-    public getUsers(input?: undefined, options?: { procedureId?: string; }) {
+    public getUsers(input?: undefined, options?: { procedureId?: string }) {
         if (this.isConnected()) {
             const procedure: ProcedureRequest = {
                 id: options?.procedureId || 'getUsers',
-                name: 'getUsers'
-            }
+                name: 'getUsers',
+            };
 
             if (input) {
                 procedure.input = input;
             }
-        
+
             const payload: Request = {
                 protocol: 'v1',
                 api: this.apiVersion,
                 procedures: [
-                    procedure
+                    procedure,
                 ],
-            }
-    
-            this.logger.debug('Websocket: sending request', { payload: payload })
-    
+            };
+
+            this.logger.debug('Websocket: sending request', { payload: payload });
+
             this.websocket && this.websocket.send(JSON.stringify(payload));
         } else {
-            throw new ClientNotConnected('Request for procedure [getUsers] not sent; client is not connected.')
+            throw new ClientNotConnected('Request for procedure [getUsers] not sent; client is not connected.');
         }
     }
 
@@ -188,30 +187,30 @@ export class WSClient {
      * Method for calling procedure getMessages.
      * Note: the request is sent immediately
      */
-    public getMessages(input?: undefined, options?: { procedureId?: string; }) {
+    public getMessages(input?: undefined, options?: { procedureId?: string }) {
         if (this.isConnected()) {
             const procedure: ProcedureRequest = {
                 id: options?.procedureId || 'getMessages',
-                name: 'getMessages'
-            }
+                name: 'getMessages',
+            };
 
             if (input) {
                 procedure.input = input;
             }
-        
+
             const payload: Request = {
                 protocol: 'v1',
                 api: this.apiVersion,
                 procedures: [
-                    procedure
+                    procedure,
                 ],
-            }
-    
-            this.logger.debug('Websocket: sending request', { payload: payload })
-    
+            };
+
+            this.logger.debug('Websocket: sending request', { payload: payload });
+
             this.websocket && this.websocket.send(JSON.stringify(payload));
         } else {
-            throw new ClientNotConnected('Request for procedure [getMessages] not sent; client is not connected.')
+            throw new ClientNotConnected('Request for procedure [getMessages] not sent; client is not connected.');
         }
     }
 
@@ -219,31 +218,30 @@ export class WSClient {
      * Method for calling procedure sendMessage.
      * Note: the request is sent immediately
      */
-    public sendMessage(input: Resource.InputMessage, options?: { procedureId?: string; }) {
+    public sendMessage(input: Resource.InputMessage, options?: { procedureId?: string }) {
         if (this.isConnected()) {
             const procedure: ProcedureRequest = {
                 id: options?.procedureId || 'sendMessage',
-                name: 'sendMessage'
-            }
+                name: 'sendMessage',
+            };
 
             if (input) {
                 procedure.input = input;
             }
-        
+
             const payload: Request = {
                 protocol: 'v1',
                 api: this.apiVersion,
                 procedures: [
-                    procedure
+                    procedure,
                 ],
-            }
-    
-            this.logger.debug('Websocket: sending request', { payload: payload })
-    
+            };
+
+            this.logger.debug('Websocket: sending request', { payload: payload });
+
             this.websocket && this.websocket.send(JSON.stringify(payload));
         } else {
-            throw new ClientNotConnected('Request for procedure [sendMessage] not sent; client is not connected.')
+            throw new ClientNotConnected('Request for procedure [sendMessage] not sent; client is not connected.');
         }
     }
-
 }

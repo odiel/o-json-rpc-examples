@@ -3,6 +3,7 @@
   "specifiers": {
     "jsr:@o-json-rpc/o-json-rpc-clients@^1.0.21": "1.0.21",
     "jsr:@o-json-rpc/o-json-rpc-ts@^1.0.11": "1.0.11",
+    "jsr:@o-json-rpc/o-json-rpc-ts@^1.0.5": "1.0.11",
     "jsr:@std/fs@^1.0.19": "1.0.24",
     "jsr:@std/internal@^1.0.14": "1.0.14",
     "jsr:@std/path@^1.1.5": "1.1.5",
@@ -20,6 +21,7 @@
     "@o-json-rpc/o-json-rpc-clients@1.0.21": {
       "integrity": "0a10827ce15544da0dd93bd70074101f1ed7317c2ece55e88af4c922e1ded16d",
       "dependencies": [
+        "jsr:@o-json-rpc/o-json-rpc-ts@^1.0.5",
         "jsr:@std/fs"
       ]
     },

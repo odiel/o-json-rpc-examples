@@ -121,35 +121,34 @@ export class WSClient {
         this.onDisconnectFn = fn;
     }
 
-    
     /**
      * Method for calling procedure addTask.
      * Note: the request is sent immediately
      */
-    public addTask(input: Resource.Task, options?: { procedureId?: string; }) {
+    public addTask(input: Resource.Task, options?: { procedureId?: string }) {
         if (this.isConnected()) {
             const procedure: ProcedureRequest = {
                 id: options?.procedureId || 'addTask',
-                name: 'addTask'
-            }
+                name: 'addTask',
+            };
 
             if (input) {
                 procedure.input = input;
             }
-        
+
             const payload: Request = {
                 protocol: 'v1',
                 api: this.apiVersion,
                 procedures: [
-                    procedure
+                    procedure,
                 ],
-            }
-    
-            this.logger.debug('Websocket: sending request', { payload: payload })
-    
+            };
+
+            this.logger.debug('Websocket: sending request', { payload: payload });
+
             this.websocket && this.websocket.send(JSON.stringify(payload));
         } else {
-            throw new ClientNotConnected('Request for procedure [addTask] not sent; client is not connected.')
+            throw new ClientNotConnected('Request for procedure [addTask] not sent; client is not connected.');
         }
     }
 
@@ -157,30 +156,30 @@ export class WSClient {
      * Method for calling procedure toggleTask.
      * Note: the request is sent immediately
      */
-    public toggleTask(input: Resource.TaskToggle, options?: { procedureId?: string; }) {
+    public toggleTask(input: Resource.TaskToggle, options?: { procedureId?: string }) {
         if (this.isConnected()) {
             const procedure: ProcedureRequest = {
                 id: options?.procedureId || 'toggleTask',
-                name: 'toggleTask'
-            }
+                name: 'toggleTask',
+            };
 
             if (input) {
                 procedure.input = input;
             }
-        
+
             const payload: Request = {
                 protocol: 'v1',
                 api: this.apiVersion,
                 procedures: [
-                    procedure
+                    procedure,
                 ],
-            }
-    
-            this.logger.debug('Websocket: sending request', { payload: payload })
-    
+            };
+
+            this.logger.debug('Websocket: sending request', { payload: payload });
+
             this.websocket && this.websocket.send(JSON.stringify(payload));
         } else {
-            throw new ClientNotConnected('Request for procedure [toggleTask] not sent; client is not connected.')
+            throw new ClientNotConnected('Request for procedure [toggleTask] not sent; client is not connected.');
         }
     }
 
@@ -188,30 +187,30 @@ export class WSClient {
      * Method for calling procedure deleteTask.
      * Note: the request is sent immediately
      */
-    public deleteTask(input: Resource.TaskId, options?: { procedureId?: string; }) {
+    public deleteTask(input: Resource.TaskId, options?: { procedureId?: string }) {
         if (this.isConnected()) {
             const procedure: ProcedureRequest = {
                 id: options?.procedureId || 'deleteTask',
-                name: 'deleteTask'
-            }
+                name: 'deleteTask',
+            };
 
             if (input) {
                 procedure.input = input;
             }
-        
+
             const payload: Request = {
                 protocol: 'v1',
                 api: this.apiVersion,
                 procedures: [
-                    procedure
+                    procedure,
                 ],
-            }
-    
-            this.logger.debug('Websocket: sending request', { payload: payload })
-    
+            };
+
+            this.logger.debug('Websocket: sending request', { payload: payload });
+
             this.websocket && this.websocket.send(JSON.stringify(payload));
         } else {
-            throw new ClientNotConnected('Request for procedure [deleteTask] not sent; client is not connected.')
+            throw new ClientNotConnected('Request for procedure [deleteTask] not sent; client is not connected.');
         }
     }
 
@@ -219,31 +218,30 @@ export class WSClient {
      * Method for calling procedure getTasks.
      * Note: the request is sent immediately
      */
-    public getTasks(input?: undefined, options?: { procedureId?: string; }) {
+    public getTasks(input?: undefined, options?: { procedureId?: string }) {
         if (this.isConnected()) {
             const procedure: ProcedureRequest = {
                 id: options?.procedureId || 'getTasks',
-                name: 'getTasks'
-            }
+                name: 'getTasks',
+            };
 
             if (input) {
                 procedure.input = input;
             }
-        
+
             const payload: Request = {
                 protocol: 'v1',
                 api: this.apiVersion,
                 procedures: [
-                    procedure
+                    procedure,
                 ],
-            }
-    
-            this.logger.debug('Websocket: sending request', { payload: payload })
-    
+            };
+
+            this.logger.debug('Websocket: sending request', { payload: payload });
+
             this.websocket && this.websocket.send(JSON.stringify(payload));
         } else {
-            throw new ClientNotConnected('Request for procedure [getTasks] not sent; client is not connected.')
+            throw new ClientNotConnected('Request for procedure [getTasks] not sent; client is not connected.');
         }
     }
-
 }

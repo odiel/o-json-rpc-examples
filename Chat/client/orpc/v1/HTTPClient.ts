@@ -1,4 +1,4 @@
-import type { AbstractLogger, ClientOptions, ProcedureRequest, Request, Response, SubscriptionRequest } from './common.ts';
+import type { AbstractLogger, ClientOptions, ProcedureRequest, Request, Response } from './common.ts';
 import { ConsoleLogger, LogLevel } from './common.ts';
 import type * as Resource from './resources.ts';
 
@@ -18,30 +18,30 @@ export class HTTPClient {
     ) {
         this.logger = options?.logger ?? new ConsoleLogger(LogLevel.INFO);
     }
-    
-    public createAlias(input: Resource.Alias, options?: { procedureId?: string; }) {
+
+    public createAlias(input: Resource.Alias, options?: { procedureId?: string }) {
         this.addProcedure('createAlias', options?.procedureId || 'createAlias', input);
         return this;
     }
 
-    public getUsers(input?: undefined, options?: { procedureId?: string; }) {
+    public getUsers(input?: undefined, options?: { procedureId?: string }) {
         this.addProcedure('getUsers', options?.procedureId || 'getUsers', input);
         return this;
     }
 
-    public getMessages(input?: undefined, options?: { procedureId?: string; }) {
+    public getMessages(input?: undefined, options?: { procedureId?: string }) {
         this.addProcedure('getMessages', options?.procedureId || 'getMessages', input);
         return this;
     }
 
-    public sendMessage(input: Resource.InputMessage, options?: { procedureId?: string; }) {
+    public sendMessage(input: Resource.InputMessage, options?: { procedureId?: string }) {
         this.addProcedure('sendMessage', options?.procedureId || 'sendMessage', input);
         return this;
     }
 
     public async send(options?: ClientOptions): Promise<Response> {
         const url = 'http://' + this.host + ':' + this.port;
-        const payload = this.buildRequestPayload( [...this.procedures], options);
+        const payload = this.buildRequestPayload([...this.procedures], options);
         this.procedures = [];
 
         this.logger.debug('Sending payload to ' + url, { payload: payload });

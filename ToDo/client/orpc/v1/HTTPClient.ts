@@ -1,4 +1,4 @@
-import type { AbstractLogger, ClientOptions, ProcedureRequest, Request, Response, SubscriptionRequest } from './common.ts';
+import type { AbstractLogger, ClientOptions, ProcedureRequest, Request, Response } from './common.ts';
 import { ConsoleLogger, LogLevel } from './common.ts';
 import type * as Resource from './resources.ts';
 
@@ -18,30 +18,30 @@ export class HTTPClient {
     ) {
         this.logger = options?.logger ?? new ConsoleLogger(LogLevel.INFO);
     }
-    
-    public addTask(input: Resource.Task, options?: { procedureId?: string; }) {
+
+    public addTask(input: Resource.Task, options?: { procedureId?: string }) {
         this.addProcedure('addTask', options?.procedureId || 'addTask', input);
         return this;
     }
 
-    public toggleTask(input: Resource.TaskToggle, options?: { procedureId?: string; }) {
+    public toggleTask(input: Resource.TaskToggle, options?: { procedureId?: string }) {
         this.addProcedure('toggleTask', options?.procedureId || 'toggleTask', input);
         return this;
     }
 
-    public deleteTask(input: Resource.TaskId, options?: { procedureId?: string; }) {
+    public deleteTask(input: Resource.TaskId, options?: { procedureId?: string }) {
         this.addProcedure('deleteTask', options?.procedureId || 'deleteTask', input);
         return this;
     }
 
-    public getTasks(input?: undefined, options?: { procedureId?: string; }) {
+    public getTasks(input?: undefined, options?: { procedureId?: string }) {
         this.addProcedure('getTasks', options?.procedureId || 'getTasks', input);
         return this;
     }
 
     public async send(options?: ClientOptions): Promise<Response> {
         const url = 'http://' + this.host + ':' + this.port;
-        const payload = this.buildRequestPayload( [...this.procedures], options);
+        const payload = this.buildRequestPayload([...this.procedures], options);
         this.procedures = [];
 
         this.logger.debug('Sending payload to ' + url, { payload: payload });
