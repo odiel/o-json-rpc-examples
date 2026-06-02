@@ -1,0 +1,5 @@
+.idea/*
+coverage/*
+Chat/client/node_modules/*
+ToDo/client/node_modules/*
+node_modules/*
