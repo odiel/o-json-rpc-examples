@@ -1,0 +1,95 @@
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color: #222;
+    background-color: #ffffff;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+}
+
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+#app {
+    max-width: 1280px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color: #ccc;
+        background-color: #1a1a1a;
+    }
+    .resource {
+        color: #ccc;
+        background-color: #161616;
+    }
+    .resource:hover {
+        border: 1px solid #bbb;
+    }
+}
+
+.mainContainer {
+    width: 500px;
+    height: 400px;
+}
+
+.tasks {
+    height: 95%;
+}
+
+.tasksContainer {
+    overflow-y: scroll;
+    height: 300px;
+}
+
+.flexBox {
+    width: 100%;
+    display: inline-flex;
+    justify-content: flex-start;
+}
+
+.taskCompleteBtn {
+    margin: 0 8px;
+}
+
+.task {
+    margin: 4px 0;
+}
+
+.taskTitle {
+    margin-right: 8px;
+}
+
+.newTask {
+    padding: 0 8px;
+}
+
+.newTaskInput {
+    width: 80%;
+}
+
+.newTaskInput > input {
+    width: 100%;
+}
+
+.newTaskSubmit > button {
+    margin-left: 16px;
+}

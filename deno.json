@@ -1,0 +1,30 @@
+{
+    "workspace": ["./Chat/server", "./Chat/client", "./ToDo/server", "./ToDo/client", "./Auth/server", "./Auth/client"],
+    "exclude": ["../o-json-rpc-clients"],
+    "tasks": {
+        "check": "deno check",
+        "start-todo-server": "deno run --allow-write --allow-read --allow-ffi --allow-net --watch ./ToDo/server/src/index.ts",
+        "start-todo-client": "vite ./ToDo/client/",
+        "start-chat-server": "deno run --allow-write --allow-read --allow-ffi --allow-net --watch ./Chat/server/src/index.ts",
+        "start-chat-client": "vite ./Chat/client/",
+        "start-auth-server": "deno run --allow-write --allow-read --allow-ffi --allow-net --watch ./Auth/server/src/index.ts",
+        "start-auth-client": "vite ./Auth/client/"
+    },
+    "imports": {
+        "@o-json-rpc/o-json-rpc-ts": "jsr:@o-json-rpc/o-json-rpc-ts@^1.0.8",
+        "@o-json-rpc/o-json-rpc-clients": "jsr:@o-json-rpc/o-json-rpc-clients@^1.0.20",
+        "zod": "npm:zod@^4.3.6"
+    },
+    "fmt": {
+        "lineWidth": 200,
+        "indentWidth": 4,
+        "semiColons": true,
+        "singleQuote": true,
+        "proseWrap": "preserve",
+        "bracePosition": "sameLine",
+        "nextControlFlowPosition": "sameLine",
+        "operatorPosition": "sameLine",
+        "singleBodyPosition": "sameLine"
+    },
+    "nodeModulesDir": "auto"
+}
