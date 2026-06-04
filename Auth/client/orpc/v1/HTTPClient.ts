@@ -18,24 +18,14 @@ export class HTTPClient {
     ) {
         this.logger = options?.logger ?? new ConsoleLogger(LogLevel.INFO);
     }
-    
-    public addTask(input: Resource.Task, options?: { procedureId?: string }) {
-        this.addProcedure('addTask', options?.procedureId || 'addTask', input);
+
+    public signIn(input: Resource.UserCredentials, options?: { procedureId?: string }) {
+        this.addProcedure('signIn', options?.procedureId || 'signIn', input);
         return this;
     }
 
-    public toggleTask(input: Resource.TaskToggle, options?: { procedureId?: string }) {
-        this.addProcedure('toggleTask', options?.procedureId || 'toggleTask', input);
-        return this;
-    }
-
-    public deleteTask(input: Resource.TaskId, options?: { procedureId?: string }) {
-        this.addProcedure('deleteTask', options?.procedureId || 'deleteTask', input);
-        return this;
-    }
-
-    public getTasks(input?: undefined, options?: { procedureId?: string }) {
-        this.addProcedure('getTasks', options?.procedureId || 'getTasks', input);
+    public getUserAccount(input?: undefined, options?: { procedureId?: string }) {
+        this.addProcedure('getUserAccount', options?.procedureId || 'getUserAccount', input);
         return this;
     }
 
