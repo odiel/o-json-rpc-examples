@@ -18,7 +18,7 @@ export class HTTPClient {
     ) {
         this.logger = options?.logger ?? new ConsoleLogger(LogLevel.INFO);
     }
-    
+
     public addTask(input: Resource.Task, options?: { procedureId?: string }) {
         this.addProcedure('addTask', options?.procedureId || 'addTask', input);
         return this;

@@ -32,7 +32,7 @@ ORPCClientWs
         }
 
         if (userResource.status == 'left') {
-            const index = users.value.findIndex((e) => e.alias == userResource.alias);
+            const index = users.value.findIndex((e: User) => e.alias == userResource.alias);
 
             if (index !== -1) {
                 const usersCopy = [...users.value];

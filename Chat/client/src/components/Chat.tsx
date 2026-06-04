@@ -1,6 +1,6 @@
 import { JSX } from 'preact';
 import { useEffect, useRef } from 'preact/hooks';
-import { Message, ORPCClient, ORPCClientWs, UsersList } from '../../orpc/index.ts';
+import { Message, ORPCClient, ORPCClientWs, User, UsersList } from '../../orpc/index.ts';
 import { signal } from '@preact/signals';
 import { alias, messages, users } from '../state/index.ts';
 
@@ -57,7 +57,7 @@ export function Chat() {
             <div className='chatTopSection'>
                 <div className='chatMessages'>
                     {messages.value.map(
-                        (el, ix) => (
+                        (el: Message, ix: number) => (
                             <ChatMessage
                                 key={ix}
                                 alias={el.alias}
@@ -69,7 +69,7 @@ export function Chat() {
                 </div>
                 <div className='chatUsers'>
                     {users.value.map(
-                        (el) => <User key={el.id} alias={el.alias} />,
+                        (el: User) => <UserComponent key={el.id} alias={el.alias} />,
                     )}
                 </div>
             </div>
@@ -123,7 +123,7 @@ function ChatMessage(
     );
 }
 
-function User({ alias }: { alias: string }) {
+function UserComponent({ alias }: { alias: string }) {
     return (
         <div className='chatUser'>
             <div>{alias}</div>

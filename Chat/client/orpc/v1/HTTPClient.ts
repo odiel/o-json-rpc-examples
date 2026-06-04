@@ -18,7 +18,7 @@ export class HTTPClient {
     ) {
         this.logger = options?.logger ?? new ConsoleLogger(LogLevel.INFO);
     }
-    
+
     public createAlias(input: Resource.Alias, options?: { procedureId?: string }) {
         this.addProcedure('createAlias', options?.procedureId || 'createAlias', input);
         return this;

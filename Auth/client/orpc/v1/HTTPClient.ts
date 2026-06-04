@@ -18,7 +18,7 @@ export class HTTPClient {
     ) {
         this.logger = options?.logger ?? new ConsoleLogger(LogLevel.INFO);
     }
-    
+
     public signIn(input: Resource.UserCredentials, options?: { procedureId?: string }) {
         this.addProcedure('signIn', options?.procedureId || 'signIn', input);
         return this;
