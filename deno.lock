@@ -1,7 +1,7 @@
 {
   "version": "5",
   "specifiers": {
-    "jsr:@o-json-rpc/o-json-rpc-clients@^1.0.24": "1.0.24",
+    "jsr:@o-json-rpc/o-json-rpc-clients@^1.0.25": "1.0.25",
     "jsr:@o-json-rpc/o-json-rpc-ts@^1.0.12": "1.0.12",
     "jsr:@o-json-rpc/o-json-rpc-ts@^1.0.5": "1.0.12",
     "jsr:@std/fs@^1.0.19": "1.0.24",
@@ -20,8 +20,8 @@
     "npm:zod@^4.3.6": "4.4.3"
   },
   "jsr": {
-    "@o-json-rpc/o-json-rpc-clients@1.0.24": {
-      "integrity": "c58707083c6c67ecd1edb144ac8c8aede3c9aed67e86ba9ae17b5ad92de727cc",
+    "@o-json-rpc/o-json-rpc-clients@1.0.25": {
+      "integrity": "37a5509cb3deb5c3b92b43ab15f78841ca3f4acd7c025ef8561327b22eef75a0",
       "dependencies": [
         "jsr:@o-json-rpc/o-json-rpc-ts@^1.0.5",
         "jsr:@std/fs"
@@ -2362,7 +2362,7 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@o-json-rpc/o-json-rpc-clients@^1.0.24",
+      "jsr:@o-json-rpc/o-json-rpc-clients@^1.0.25",
       "jsr:@o-json-rpc/o-json-rpc-ts@^1.0.12",
       "npm:jose@^6.2.3",
       "npm:zod@^4.3.6"

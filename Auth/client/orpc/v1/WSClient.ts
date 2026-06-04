@@ -120,7 +120,7 @@ export class WSClient {
     public onDisconnect(fn: () => void) {
         this.onDisconnectFn = fn;
     }
-
+    
     /**
      * Method for calling procedure signIn.
      * Note: the request is sent immediately
@@ -182,4 +182,5 @@ export class WSClient {
             throw new ClientNotConnected('Request for procedure [getUserAccount] not sent; client is not connected.');
         }
     }
+
 }

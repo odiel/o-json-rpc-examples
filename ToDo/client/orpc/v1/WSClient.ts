@@ -143,9 +143,9 @@ export class WSClient {
                     procedure,
                 ],
             };
-    
+
             this.logger.debug('Websocket: sending request', { payload: payload });
-    
+
             this.websocket && this.websocket.send(JSON.stringify(payload));
         } else {
             throw new ClientNotConnected('Request for procedure [addTask] not sent; client is not connected.');
@@ -174,9 +174,9 @@ export class WSClient {
                     procedure,
                 ],
             };
-    
+
             this.logger.debug('Websocket: sending request', { payload: payload });
-    
+
             this.websocket && this.websocket.send(JSON.stringify(payload));
         } else {
             throw new ClientNotConnected('Request for procedure [toggleTask] not sent; client is not connected.');
@@ -205,9 +205,9 @@ export class WSClient {
                     procedure,
                 ],
             };
-    
+
             this.logger.debug('Websocket: sending request', { payload: payload });
-    
+
             this.websocket && this.websocket.send(JSON.stringify(payload));
         } else {
             throw new ClientNotConnected('Request for procedure [deleteTask] not sent; client is not connected.');
@@ -236,9 +236,9 @@ export class WSClient {
                     procedure,
                 ],
             };
-    
+
             this.logger.debug('Websocket: sending request', { payload: payload });
-    
+
             this.websocket && this.websocket.send(JSON.stringify(payload));
         } else {
             throw new ClientNotConnected('Request for procedure [getTasks] not sent; client is not connected.');

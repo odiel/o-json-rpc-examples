@@ -18,7 +18,7 @@ export class HTTPClient {
     ) {
         this.logger = options?.logger ?? new ConsoleLogger(LogLevel.INFO);
     }
-
+    
     public createAlias(input: Resource.Alias, options?: { procedureId?: string }) {
         this.addProcedure('createAlias', options?.procedureId || 'createAlias', input);
         return this;
@@ -90,11 +90,7 @@ export class HTTPClient {
             request.options = {};
 
             if (options.authentication) {
-                request.options.authentication = {
-                    scheme: options.authentication.scheme,
-                    token: options.authentication.token,
-                    token_format: options.authentication.token_format,
-                };
+                request.options.authentication = options.authentication;
             }
 
             if (options.execution) {
