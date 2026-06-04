@@ -1,3 +1,7 @@
+## Intro
+
+This repo contains application examples to demonstrate how to use [O-JSON-RPC-TS](https://github.com/odiel/o-json-rpc-ts) implementation of [O-JSON-RPC](https://github.com/odiel/o-json-rpc) protocol when building both server side APIs and client applications to interact with the APIs.
+
 ## Requirements
 
 - [Deno runtime](https://deno.com)
@@ -5,39 +9,49 @@
 ## ToDo app
 
 This is a simple ToDo application that allows to add, mark as completed and delete tasks added to a list.
-It uses the auto generated ORPC HTTPClient.
 
+To start the server instance use:
 ```shell
 deno task start-todo-server
 ```
 
-starts the server instance; and
-
+To start the client application use:
 ```shell
 deno task start-todo-client
 ```
 
-starts the client instance.
-
 ## Chat app
 
-This is a simple Chat application that allows to set an alias before joining a common chat room; users can send messages and disconnect from the chat.
-It uses both the auto generated ORPC HTTPClient and WSClient clients.
+Simple Chat application that asks the user for an alias before joining a common chat room. Users can send messages and disconnect from the chat.
 
+To start the server instance use:
 ```shell
 deno task start-chat-server
 ```
 
-starts the server instance; and
-
+To start the client application use:
 ```shell
 deno task start-chat-client
 ```
 
-starts the client instance.
+## Auth app
+
+This example demonstrate how to use the different authentication schemes O-JSON-RPC supports by definition.
+
+To start the server instance use:
+```shell
+deno task start-auth-server
+```
+
+To start the client application use:
+```shell
+deno task start-auth-client
+```
+
 
 ## Additional notes
 
-Server instances are accessible by default at `localhost:7000` and should allow both HTTP and Websocket requests. The API definition should be accessible at http://localhost:7000/definition .
+Server instances are accessible by default at `localhost:7000` and should allow both HTTP and Websocket requests. \ 
+The API definition should be accessible at http://localhost:7000/definition
 
-The client instance should be accessible by default at http://127.0.0.1:5173/, check the output in the terminal in case the port is already in use.
+The client instance should be accessible by default at http://localhost:5173/, check the output in the terminal for more information.
