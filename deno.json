@@ -11,8 +11,8 @@
         "start-auth-client": "vite ./Auth/client/"
     },
     "imports": {
-        "@o-json-rpc/o-json-rpc-ts": "jsr:@o-json-rpc/o-json-rpc-ts@^0.0.1",
-        "@o-json-rpc/o-json-rpc-clients": "jsr:@o-json-rpc/o-json-rpc-clients-exp@^0.0.1",
+        "@o-json-rpc/o-json-rpc-ts": "jsr:@o-json-rpc/o-json-rpc-ts@^0.0.3",
+        "@o-json-rpc/o-json-rpc-clients": "jsr:@o-json-rpc/o-json-rpc-clients-exp@^0.0.3",
         "jose": "npm:jose@^6.2.3",
         "zod": "npm:zod@^4.3.6"
     },

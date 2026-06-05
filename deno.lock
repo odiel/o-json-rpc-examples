@@ -1,8 +1,8 @@
 {
   "version": "5",
   "specifiers": {
-    "jsr:@o-json-rpc/o-json-rpc-clients-exp@^0.0.1": "0.0.1",
-    "jsr:@o-json-rpc/o-json-rpc-ts@^0.0.1": "0.0.1",
+    "jsr:@o-json-rpc/o-json-rpc-clients-exp@^0.0.3": "0.0.3",
+    "jsr:@o-json-rpc/o-json-rpc-ts@^0.0.3": "0.0.3",
     "jsr:@std/fs@^1.0.19": "1.0.24",
     "jsr:@std/internal@^1.0.14": "1.0.14",
     "jsr:@std/path@^1.1.5": "1.1.5",
@@ -19,15 +19,15 @@
     "npm:zod@^4.3.6": "4.4.3"
   },
   "jsr": {
-    "@o-json-rpc/o-json-rpc-clients-exp@0.0.1": {
-      "integrity": "8c807606eb834117e9b276f8a16559592f02df615cd4e6359c2db6bbe5d7b56c",
+    "@o-json-rpc/o-json-rpc-clients-exp@0.0.3": {
+      "integrity": "03c5ebd6db926a0b127fa7b29a4acc757957a01c88822a8d4142a6d24cac0a8b",
       "dependencies": [
         "jsr:@o-json-rpc/o-json-rpc-ts",
         "jsr:@std/fs"
       ]
     },
-    "@o-json-rpc/o-json-rpc-ts@0.0.1": {
-      "integrity": "407be2a6eb556c89f815804a95708780abab82aa540b26775470d6cabe556d31",
+    "@o-json-rpc/o-json-rpc-ts@0.0.3": {
+      "integrity": "143845a546b5ae4ad26b8919fe46a8422f5eed5a7b70d609dcdc671ba9378980",
       "dependencies": [
         "npm:zod@^4.1.4"
       ]
@@ -2361,8 +2361,8 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@o-json-rpc/o-json-rpc-clients-exp@^0.0.1",
-      "jsr:@o-json-rpc/o-json-rpc-ts@^0.0.1",
+      "jsr:@o-json-rpc/o-json-rpc-clients-exp@^0.0.3",
+      "jsr:@o-json-rpc/o-json-rpc-ts@^0.0.3",
       "npm:jose@^6.2.3",
       "npm:zod@^4.3.6"
     ],
