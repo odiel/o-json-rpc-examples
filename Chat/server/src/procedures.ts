@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import { ProcedureRequestContext, ProcedureResult, RequestContext, Resource, ResourceName, WebSocketId } from '@o-json-rpc/o-json-rpc-ts';
+import { ProcedureRequestContext, ProcedureResult, RequestContext, ResourceDefinition, ResourceName, WebSocketId } from '@o-json-rpc/o-json-rpc-ts';
 
 // Zod schemas
 export const zAlias = z.string();
@@ -34,32 +34,32 @@ type ChatMessage = z.infer<typeof zMessage>;
 
 // Api resource definition
 
-export const AliasResource: Resource = {
+export const AliasResource: ResourceDefinition = {
     name: 'Alias' as ResourceName,
     schema: zAlias,
 };
 
-export const UsersListResource: Resource = {
+export const UsersListResource: ResourceDefinition = {
     name: 'UsersList' as ResourceName,
     schema: zUsersList,
 };
 
-export const InputMessageResource: Resource = {
+export const InputMessageResource: ResourceDefinition = {
     name: 'InputMessage' as ResourceName,
     schema: zInputMessage,
 };
 
-export const MessagesResource: Resource = {
+export const MessagesResource: ResourceDefinition = {
     name: 'Messages' as ResourceName,
     schema: z.array(zMessage),
 };
 
-export const UserResource: Resource = {
+export const UserResource: ResourceDefinition = {
     name: 'User' as ResourceName,
     schema: zUser,
 };
 
-export const MessageResource: Resource = {
+export const MessageResource: ResourceDefinition = {
     name: 'Message' as ResourceName,
     schema: zMessage,
 };

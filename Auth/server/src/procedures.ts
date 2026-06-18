@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import { ProcedureRequestContext, ProcedureResult, RequestContext, Resource, ResourceName } from '@o-json-rpc/o-json-rpc-ts';
+import { ProcedureRequestContext, ProcedureResult, RequestContext, ResourceDefinition, ResourceName } from '@o-json-rpc/o-json-rpc-ts';
 import { generateApiKey, generateSessionId, generateTokens } from './utils.ts';
 
 // Zod schemas
@@ -28,17 +28,17 @@ export const zUserAccount = z.object({
 
 // Api resource definition
 
-export const UserCredentialsResource: Resource = {
+export const UserCredentialsResource: ResourceDefinition = {
     name: 'UserCredentials' as ResourceName,
     schema: zUserCredentials,
 };
 
-export const SignedUserResource: Resource = {
+export const SignedUserResource: ResourceDefinition = {
     name: 'SignedUser' as ResourceName,
     schema: zSignedUser,
 };
 
-export const UserAccountResource: Resource = {
+export const UserAccountResource: ResourceDefinition = {
     name: 'UserAccount' as ResourceName,
     schema: zUserAccount,
 };

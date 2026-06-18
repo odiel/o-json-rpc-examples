@@ -6,6 +6,7 @@ export function AccountInfo() {
             {userAccount.value ?
                 (
                     <div>
+                        Authentication scheme: {userAccount.value.scheme} <br />
                         UserId: {userAccount.value.id} <br />
                         Username: {userAccount.value.username} <br />
                         Signed on: {userAccount.value.signedInDate}

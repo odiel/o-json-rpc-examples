@@ -1,44 +1,42 @@
 import { JSX } from 'preact';
-import { signal } from '@preact/signals';
 import { ORPCClient, SignedUser } from '../../orpc/index.ts';
-import { useEffect } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 import { signedUser } from '../state/index.ts';
 
-const isSubmitting = signal(false);
-const errorMessage = signal('');
-
-const username = signal('');
-const password = signal('');
-
 export function CredentialsPrompt() {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
+
     const onSubmit = async (e: JSX.TargetedEvent<HTMLFormElement, Event>) => {
         e.preventDefault();
-        isSubmitting.value = true;
-        errorMessage.value = '';
+        setIsSubmitting(true);
+        setErrorMessage('');
 
-        const result = await ORPCClient.signIn({ username: username.value, password: password.value }).send();
+        const result = await ORPCClient.signIn({ username: username, password: password }).send();
         if ('error' in result.procedures['signIn']) {
-            errorMessage.value = 'Wrong credentials!';
+            setErrorMessage('Wrong credentials!');
         }
 
         if ('result' in result.procedures['signIn']) {
             signedUser.value = result.procedures['signIn']!.result! as SignedUser;
         }
 
-        isSubmitting.value = false;
+        setIsSubmitting(false);
     };
 
     const onUsernameInput = (e: JSX.TargetedEvent<HTMLInputElement, Event>) => {
-        username.value = e.currentTarget.value;
+        setUsername(e.currentTarget.value);
     };
 
     const onPasswordInput = (e: JSX.TargetedEvent<HTMLInputElement, Event>) => {
-        password.value = e.currentTarget.value;
+        setPassword(e.currentTarget.value);
     };
 
     useEffect(() => {
-        isSubmitting.value = false;
-        username.value = '';
+        setIsSubmitting(false);
+        setUsername('');
     }, []);
 
     return (
@@ -55,7 +53,7 @@ export function CredentialsPrompt() {
                         name='username'
                         placeholder='Username'
                         onInput={onUsernameInput}
-                        value={username.value}
+                        value={username}
                     />
 
                     <input
@@ -63,21 +61,21 @@ export function CredentialsPrompt() {
                         name='password'
                         placeholder='Password'
                         onInput={onPasswordInput}
-                        value={password.value}
+                        value={password}
                     />
 
                     <button
                         type='submit'
-                        disabled={username.value.length < 3 || password.value.length < 3}
+                        disabled={username.length < 3 || password.length < 3}
                     >
                         Sign in
                     </button>
                 </fieldset>
             </form>
 
-            {errorMessage.value && (
+            {errorMessage && (
                 <div>
-                    <h5>{errorMessage.value}</h5>
+                    <h5>{errorMessage}</h5>
                 </div>
             )}
         </div>

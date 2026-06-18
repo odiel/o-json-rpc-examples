@@ -1,18 +1,17 @@
 import { JSX } from 'preact';
-import { useEffect, useRef } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 import { Message, ORPCClient, ORPCClientWs, User, UsersList } from '../../orpc/index.ts';
-import { signal } from '@preact/signals';
 import { alias, messages, users } from '../state/index.ts';
 
-const isSending = signal(false);
-const messageInput = signal('');
-
 export function Chat() {
+    const [isSending, setIsSending] = useState(false);
+    const [message, setMessage] = useState('');
+
     const inputMessageRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
         inputMessageRef.current && inputMessageRef.current.focus();
-    }, [messageInput.value]);
+    }, [message]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -32,24 +31,18 @@ export function Chat() {
 
     const onSubmit = (e: JSX.TargetedEvent<HTMLFormElement, Event>) => {
         e.preventDefault();
-        isSending.value = true;
+        setIsSending(true);
 
-        if (messageInput.value.length > 0) {
-            const message = messageInput.toString();
-
+        if (message.length > 0) {
             ORPCClientWs.sendMessage({ alias: alias.value, message });
-
-            if (inputMessageRef.current) {
-                messageInput.value = '';
-                inputMessageRef.current.focus();
-            }
+            setMessage('');
         }
 
-        isSending.value = false;
+        setIsSending(false);
     };
 
     const onMessageInput = (event: JSX.TargetedEvent<HTMLInputElement, Event>) => {
-        messageInput.value = event.currentTarget.value;
+        setMessage(event.currentTarget.value);
     };
 
     return (
@@ -84,7 +77,7 @@ export function Chat() {
                             name='message'
                             placeholder='Type your message'
                             onInput={onMessageInput}
-                            value={messageInput.value}
+                            value={message}
                             className='chatInputMessage'
                         />
 

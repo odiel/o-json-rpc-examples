@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import { ProcedureRequestContext, ProcedureResult, RequestContext, Resource, ResourceName } from '@o-json-rpc/o-json-rpc-ts';
+import { ProcedureRequestContext, ProcedureResult, RequestContext, ResourceDefinition, ResourceName } from '@o-json-rpc/o-json-rpc-ts';
 
 // Zod schemas
 const zTask = z.object({
@@ -25,22 +25,22 @@ type TaskToggle = z.infer<typeof zToggleTask>;
 
 // Api resource definition
 
-export const TaskResource: Resource = {
+export const TaskResource: ResourceDefinition = {
     name: 'Task' as ResourceName,
     schema: zTask,
 };
 
-export const TaskCollectionResource: Resource = {
+export const TaskCollectionResource: ResourceDefinition = {
     name: 'TaskCollection' as ResourceName,
     schema: zTaskCollection,
 };
 
-export const TaskIdResource: Resource = {
+export const TaskIdResource: ResourceDefinition = {
     name: 'TaskId' as ResourceName,
     schema: zTaskId,
 };
 
-export const TaskToggleResource: Resource = {
+export const TaskToggleResource: ResourceDefinition = {
     name: 'TaskToggle' as ResourceName,
     schema: zToggleTask,
 };

@@ -3,9 +3,11 @@
   "specifiers": {
     "jsr:@o-json-rpc/o-json-rpc-clients-exp@^0.0.5": "0.0.5",
     "jsr:@o-json-rpc/o-json-rpc-ts@^0.0.5": "0.0.5",
+    "jsr:@o-json-rpc/o-json-rpc-ts@^0.0.6": "0.0.6",
     "jsr:@std/fs@^1.0.19": "1.0.24",
     "jsr:@std/internal@^1.0.14": "1.0.14",
     "jsr:@std/path@^1.1.5": "1.1.5",
+    "npm:@faker-js/faker@10.4.0": "10.4.0",
     "npm:@preact/preset-vite@^2.10.2": "2.10.5_@babel+core@7.29.0_vite@7.3.2_preact@10.29.1",
     "npm:@preact/signals@^2.9.0": "2.9.0_preact@10.29.1",
     "npm:ansis@4.2.0": "4.2.0",
@@ -22,12 +24,18 @@
     "@o-json-rpc/o-json-rpc-clients-exp@0.0.5": {
       "integrity": "bab47b76cd1128cab05e92cbfcfd9a5eeab00bf2b27d1962cc8d1c7c33935b99",
       "dependencies": [
-        "jsr:@o-json-rpc/o-json-rpc-ts",
+        "jsr:@o-json-rpc/o-json-rpc-ts@^0.0.5",
         "jsr:@std/fs"
       ]
     },
     "@o-json-rpc/o-json-rpc-ts@0.0.5": {
       "integrity": "8d3eb5ad14358180f42136f8382fd019e27c156a0fbc1f2a8083a9809a6476d2",
+      "dependencies": [
+        "npm:zod@^4.1.4"
+      ]
+    },
+    "@o-json-rpc/o-json-rpc-ts@0.0.6": {
+      "integrity": "39a5edf04c3699d4eb64fa8ce3b0972c0f3b277c5c90367004d293e21bbff2c7",
       "dependencies": [
         "npm:zod@^4.1.4"
       ]
@@ -410,6 +418,9 @@
         "@eslint/core",
         "levn"
       ]
+    },
+    "@faker-js/faker@10.4.0": {
+      "integrity": "sha512-sDBWI3yLy8EcDzgobvJTWq1MJYzAkQdpjXuPukga9wXonhpMRvd1Izuo2Qgwey2OiEoRIBr35RMU9HJRoOHzpw=="
     },
     "@humanfs/core@0.19.2": {
       "integrity": "sha512-UhXNm+CFMWcbChXywFwkmhqjs3PRCmcSa/hfBgLIb7oQ5HNb1wS0icWsGtSAUNgefHeI+eBrA8I1fxmbHsGdvA==",
@@ -2362,7 +2373,7 @@
   "workspace": {
     "dependencies": [
       "jsr:@o-json-rpc/o-json-rpc-clients-exp@^0.0.5",
-      "jsr:@o-json-rpc/o-json-rpc-ts@^0.0.5",
+      "jsr:@o-json-rpc/o-json-rpc-ts@^0.0.6",
       "npm:jose@^6.2.3",
       "npm:zod@^4.3.6"
     ],
